@@ -54,7 +54,18 @@ body{
     transform: translateX(-50%);
     left: 50%;
     margin: -3rem 0 -1rem 0;
-    width: 20%;
+    width: 20rem;
+}
+
+.github{
+    cursor: pointer;
+    transition: 0.1s;
+    opacity: 0.8;
+}
+
+.github:hover{
+    opacity: 1;
+    filter: brightness(200%);
 }
 
 /* .terminalParent{
@@ -399,5 +410,61 @@ body{
 
     100%{
         opacity: 0;
+    }
+}
+
+
+@media screen and (max-width: 880px) {
+    .terminalParent{
+        left: 50%;
+        transform: scale(0.9) translateX(-55%);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .terminalParent{
+        left: 50%;
+        transform: scale(0.8) translateX(-63%);
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .terminalParent{
+        left: 46%;
+        transform: scale(0.75) translateX(-63%);
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .terminalParent{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 515px) {
+    .buttonGithub{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 366px) {  
+    .buttonGithub{
+        width: 80%;
+    }
+
+    .goodgit{
+        width: 15rem;
+    }
+}
+
+@media screen and (max-width: 325px) {  
+    .buttonGithub{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 285px) {  
+    .buttonGithub{
+        width: 100%;
     }
 }
