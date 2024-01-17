@@ -43,9 +43,56 @@
             </div>
         </div>
     </div> -->
-    <div class="videoParent">
-        <div class="video">
-            
+    <div class="terminalParent">
+        <div class="terminal">
+            <div class="tabs">
+                <div value="AiCommits" style="border-left: none;" class="tab activeTab">
+                    <h3 style="transform: skew(-20deg);">AI commits</h3>
+                </div>                
+                <div value="ssh" class="tab">
+                    <h3>15sec SSH setup</h3>
+                </div>                
+                <div value="tt" class="tab">
+                    <h3>time-travel</h3>
+                </div>                
+                <div value="ma" class="tab">
+                    <h3>multiple accounts</h3>
+                </div>
+                <div value="more" class="tab">
+                    <h3>and more...</h3>
+                </div>
+            </div>
+            <div class="terminalContent activeTerminal terminalContentAi">
+                <img class="illustration" src="./static/aiGang.png" alt="AI Illustration">
+                <div class="copyDiv">
+                    <h3 class="text textCommit">>_ <span>gg add &lt;files to add&gt;</span></h3>
+                    <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+                </div>
+            </div>
+            <div class="terminalContent terminalContentSsh">
+                <img class="illustration" style="margin: 1rem;" src="./static/tickTick.png" alt="Tick Tick Illustration">
+                <div class="copyDiv">
+                    <h3 class="text textCommit">>_ <span>gg setup</span></h3>
+                    <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+                </div>
+            </div>
+            <div class="terminalContent terminalContentTt">
+                <img class="illustration" style="margin: 2rem 0 3rem 0; transform: scale(1.3);" src="./static/tt.png" alt="TT Illustration">
+                <div class="copyDiv">
+                    <h3 class="text textCommit">>_ <span>gg tt</span></h3>
+                    <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+                </div>
+            </div>
+            <div class="terminalContent terminalContentMa">
+                <img class="illustration" style="margin: 2rem 0 3rem 0; transform: scale(1.6);" src="./static/multipleAccounts.png" alt="Multiple Accounts Illustration">
+                <div class="copyDiv">
+                    <h3 class="text textCommit">>_ <span>gg setup</span></h3>
+                    <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+                </div>
+            </div>
+            <div class="terminalContent terminalContentMore">
+                <img class="illustration" style="margin: 7rem 0 3rem 0; transform: scale(1.4);" src="./static/more.png" alt="More Illustration">
+            </div>
         </div>
     </div>
 

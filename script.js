@@ -1,3 +1,21 @@
+function notify(message, type){
+    notificationElement = `
+        <div class="notification ${type}">
+            <h2>${message}</h2>
+        </div>
+    `
+
+    notificationDiv = document.createElement("div")
+    notificationDiv.innerHTML = notificationElement
+
+    document.body.appendChild(notificationDiv)
+    
+    setTimeout(() => {
+        document.body.removeChild(notificationDiv)
+    }, 3000)
+}
+
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyClJtSEK7wybjP6Cqs3MGu1euVA3rasJ9Y",
@@ -37,10 +55,12 @@ function handleGitHubSignIn() {
             })
             .catch((error) => {
                 console.error('Error fetching user email from GitHub:', error);
+                notify("Error fetching user email :(", "warning")
             });
         })
         .catch((error) => {
             console.error('Error during GitHub sign-in:', error);
+            notify("Error during sign in :(", "warning")
         });
 }
 
@@ -65,11 +85,13 @@ auth.getRedirectResult().then((result) => {
         })
         .catch((error) => {
             console.error('Error fetching user email from GitHub:', error);
+            notify("Error fetching user email :(", "warning")
         });
     }
     }).catch((error) => {
         // Handle errors
         console.error('Error during GitHub redirect sign-in:', error);
+        notify("Error with github sign in :(", "warning")
         });
         
         document.addEventListener('DOMContentLoaded', function() {
@@ -94,13 +116,104 @@ function saveUserEmailToWaitlist(userId, email) {
     })
     .then(() => {
         console.log('User email added to waitlist!');
+        notify("Email added to waitlist!", "success")
+        document.querySelector(".github_signin").classList.add("signedIn")
+        document.querySelector(".github_signin").innerHTML = "Joined Waitlist :)"
         // Here you can redirect the user or show a confirmation message
     })
     .catch((error) => {
         console.error('Error adding user to waitlist: ', error);
+        notify("Some error occured, please try again.", "warning")
         // Handle any errors here, such as showing a message to the user
     });
 }
+
+
+function copyFeedback(event) {
+    let copyElement = event.target;
+    let rect = copyElement.getBoundingClientRect();
+    let copiedText = document.createElement('div');
+    copiedText.innerHTML = "Copied";
+    copiedText.classList.add('copied');
+    copiedText.style.left = rect.left + "px";
+    copiedText.style.top = rect.top + "px";
+    document.body.appendChild(copiedText);
+    setTimeout(() => {
+      copiedText.style.opacity = 0;
+    }, 100);  // Initiate fade-out right away
+    setTimeout(() => {
+      document.body.removeChild(copiedText);
+    }, 1000);  // Remove after fade-out
+  }
+
+  document.querySelectorAll('.copy').forEach(button => {
+    button.addEventListener('click', () => {
+      let siblingTextElement = [...button.parentNode.children].find(child => child.classList.contains('text'));
+      if (siblingTextElement) {
+        let span = siblingTextElement.querySelector('span');
+        if (span) {
+          navigator.clipboard.writeText(span.innerText)
+            .then(() => console.log('Text copied!'))
+            .catch(err => console.error('Error in copying text: ', err));
+        } else {
+          console.error('No span element found.');
+        }
+      } else {
+        console.error('No sibling .text element found.');
+      }
+    });
+});
+
+
+let tabs = document.querySelectorAll(".tab")
+let allTerminals = document.querySelectorAll(".terminalContent")
+let terminalAi = document.querySelector(".terminalContentAi")
+let terminalSsh = document.querySelector(".terminalContentSsh")
+let terminalTt = document.querySelector(".terminalContentTt")
+let terminalMa = document.querySelector(".terminalContentMa")
+let terminalMore = document.querySelector(".terminalContentMore")
+
+tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+        document.querySelector(".activeTab").classList.remove("activeTab")
+        tab.classList.add("activeTab")
+        let dataValue = tab.getAttribute("value")
+        if (dataValue == "AiCommits"){
+            allTerminals.forEach((allTerminal) => {
+                allTerminal.classList.remove('activeTerminal')
+                terminalAi.classList.add("activeTerminal")
+            })
+        }
+
+        else if (dataValue == "ssh"){
+            allTerminals.forEach((allTerminal) => {
+                allTerminal.classList.remove('activeTerminal')
+                terminalSsh.classList.add("activeTerminal")
+            })
+        }
+
+        else if (dataValue == "tt"){
+            allTerminals.forEach((allTerminal) => {
+                allTerminal.classList.remove('activeTerminal')
+                terminalTt.classList.add("activeTerminal")
+            })
+        }
+
+        else if (dataValue == "ma"){
+            allTerminals.forEach((allTerminal) => {
+                allTerminal.classList.remove('activeTerminal')
+                terminalMa.classList.add("activeTerminal")
+            })
+        }
+
+        else if (dataValue == "more"){
+            allTerminals.forEach((allTerminal) => {
+                allTerminal.classList.remove('activeTerminal')
+                terminalMore.classList.add("activeTerminal")
+            })
+        }
+    })
+})
 
 
 // terminal

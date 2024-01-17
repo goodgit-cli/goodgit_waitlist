@@ -53,7 +53,8 @@ body{
     position: relative;
     transform: translateX(-50%);
     left: 50%;
-    margin-top: -1rem;
+    margin: -3rem 0 -1rem 0;
+    width: 20%;
 }
 
 /* .terminalParent{
@@ -120,26 +121,6 @@ body{
     margin-top: 20px;
     margin-left: -4px;
 } */
-
-.videoParent{
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 2rem;
-    width: 850px;
-    height: 50vh;
-    padding: 1.5rem;
-    border-radius: 10px;
-    background: linear-gradient(69deg, rgba(15, 15, 15, 0.50) -3.25%, rgba(35, 35, 35, 0.50) 102.57%);
-}
-
-.video{
-    border-radius: 10px;
-    background: linear-gradient(69deg, #0F0F0F -3.25%, #1F1F1F 102.57%);
-    padding: 0.3rem 1.75rem;
-    height: 100%;
-    width: 100%;
-}
 
 .buttonGithub{
     position: absolute;
@@ -220,5 +201,203 @@ body{
     100%{
         /* display: none; */
         z-index: -1;
+    }
+}
+
+
+/* mid terminal type interface */
+.terminalParent{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 2rem;
+    width: 850px;
+    height: 55vh;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: linear-gradient(69deg, rgba(15, 15, 15, 0.50) -3.25%, rgba(35, 35, 35, 0.50) 102.57%);
+}
+
+.terminal{
+    border-radius: 10px;
+    background: linear-gradient(69deg, #0F0F0F -3.25%, #1F1F1F 102.57%);
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tabs{
+    display: flex;
+    color: #DCDCDC;
+    width: 110%;
+    margin-left: -0.6rem;
+}
+
+.tab{
+    transform: skew(20deg);
+    border-bottom: 0.5px solid #DCDCDC;
+    border-left: 0.5px solid #DCDCDC;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab:hover{
+    background: #ffffff0a;
+}
+
+.activeTab:hover{
+    background: none;
+}
+
+.activeTab{
+    border-bottom: none;
+    cursor: default;
+}
+
+.activeTab h3{
+    font-weight: 500 !important;
+}
+
+.tab h3{
+    transform: skew(-20deg);
+    padding: 16px 27px;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.terminalContent{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 10rem;
+    align-items: center;
+    display: none;
+}
+
+.activeTerminal{
+    display: flex;
+}
+
+.illustration{
+    width: 90%;
+    margin-top: 0.5rem;
+}
+
+.copyDiv{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border: 1px solid #3D3D3D;
+    justify-content: space-between;
+    padding: 1rem;
+    font-size: 1rem;
+    position: relative;
+    color: #DCDCDC;
+    width: 75%;
+    margin-top: 1rem;
+}
+
+.copyDiv .text{
+    font-weight: 400;
+    font-family: Source Code Pro;
+}
+
+.copyDiv .copy{
+    font-weight: 400;
+    cursor: pointer;
+    transition: .2s all;
+}
+
+.copy span{
+    margin-left: 2.5rem;
+}
+
+.copy:hover{
+    font-weight: 500;
+}
+
+
+.copied {
+    position: absolute;
+    animation: balloon 1s forwards;
+    pointer-events: none;
+    color: #73F698;
+}
+
+@keyframes balloon {
+    0%{
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translateY(-50px) scale(1.2);
+        opacity: 0;
+    }
+}
+
+.copyParentDiv{
+    display: flex;
+    align-items: center;
+    margin-bottom: -1rem;
+    margin-top: -1rem;
+}
+
+.copyParentDiv .copyDiv{
+    width: 100%;
+}
+
+.copyParentDiv .or{
+    font-size: 1rem;
+    margin: auto 15px;
+    padding-top: 3rem;
+}
+
+
+.signedIn{
+    cursor: default;
+    pointer-events: none;
+}
+
+.notification{
+    position: absolute;
+    right: 3rem;
+    bottom: 3rem;
+    color: #fff;
+    border-radius: 0.3rem;
+    cursor: default;
+    animation: inAnimation 3s forwards ease-in-out;
+}
+
+.success{
+    background: #20bf6b;
+}
+
+.warning{
+    background: #eb3b5a;
+}
+
+.notification h2{
+    font-size: 1.2rem;
+    padding: 0.5rem 2.5rem;
+    font-weight: 500;
+}
+
+@keyframes inAnimation {
+    0%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    20%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    90%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
     }
 }
