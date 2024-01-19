@@ -413,6 +413,14 @@ body{
     }
 }
 
+.terminalMobile{
+    display: none !important;
+}
+
+.buttonBg{
+    display: none;
+}
+
 
 @media screen and (max-width: 880px) {
     .terminalParent{
@@ -429,21 +437,56 @@ body{
 }
 
 @media screen and (max-width: 680px) {
-    .terminalParent{
-        left: 46%;
-        transform: scale(0.75) translateX(-63%);
+    .buttonGithub{
+        position: fixed;
     }
-}
 
-@media screen and (max-width: 650px) {
     .terminalParent{
         display: none;
+    }
+
+    .terminalMobile{
+        display: flex !important;
+    }
+
+    .terminalContentMobile{
+        display: flex !important;
+        transform: scale(0.9) !important;
+        gap: 1rem;
+        align-items: center;
+        height: 30rem !important;
+        flex-direction: column;
+        border: 1px solid #DCDCDC;
+        border-radius: 0.5rem;
+        padding: 3rem 2rem 10rem 1rem;
+    }
+
+    .illustrationMobile{
+        width: 85%;
+    }
+
+    .copyDiv{
+        width: 90%;
     }
 }
 
 @media screen and (max-width: 515px) {
     .buttonGithub{
         width: 70%;
+    }
+}
+
+@media screen and (max-width: 495px) {
+    .terminalContentMobile{
+        height: 23rem !important;
+    }
+
+    .illustrationMobile{
+        width: 100% !important;
+    }
+
+    .copyDiv{
+        width: 100%;
     }
 }
 
@@ -457,7 +500,7 @@ body{
     }
 }
 
-@media screen and (max-width: 325px) {  
+@media screen and (max-width: 325px) {
     .buttonGithub{
         width: 90%;
     }

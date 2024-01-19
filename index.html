@@ -11,6 +11,8 @@
     <link rel="icon" type="image/x-icon" href="/static/logo.png">
     <!-- font -->
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@200,500,1,300,600,400,700&display=swap" rel="stylesheet">
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 </head>
 <body>
     <img src="./static/background.png" alt="background" class="background">
@@ -53,7 +55,7 @@
                 </div>                
                 <div value="ssh" class="tab">
                     <h3>15sec SSH setup</h3>
-                </div>                
+                </div>
                 <div value="tt" class="tab">
                     <h3>time-travel</h3>
                 </div>                
@@ -98,6 +100,42 @@
         </div>
     </div>
 
+    <div class="swiper mySwiper">
+        <div class="terminalMobile swiper-wrapper">
+            <div class="terminalContentMobile swiper-slide">
+                <img class="illustrationMobile" src="./static/aiGang.png" alt="AI Illustration">
+                <div class="copyDiv">
+                    <h3 class="text textCommit">>_ <span>gg add &lt;files to add&gt;</span></h3>
+                    <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+                </div>
+            </div>
+            <div class="terminalContentMobile swiper-slide">
+                <img style="width: 90%; margin-top: 1rem; margin-bottom: 2rem;" class="illustrationMobile" src="./static/tickTick.png" alt="Tick Tick Illustration">
+                <div class="copyDiv">
+                    <h3 class="text textCommit">>_ <span>gg setup</span></h3>
+                    <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+                </div>
+            </div>
+            <div class="terminalContentMobile swiper-slide">
+                <img style="width: 90%;" class="illustrationMobile" src="./static/tt.png" alt="TT Illustration">
+                <div class="copyDiv">
+                    <h3 class="text textCommit">>_ <span>gg tt</span></h3>
+                    <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+                </div>
+            </div>
+            <div class="terminalContentMobile swiper-slide">
+                <img style="width: 95%; margin-top: 1rem; margin-bottom: 1rem;" class="illustrationMobile" src="./static/multipleAccounts.png" alt="Multiple Accounts Illustration">
+                <div class="copyDiv">
+                    <h3 class="text textCommit">>_ <span>gg setup</span></h3>
+                    <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+                </div>
+            </div>
+            <div class="terminalContentMobile swiper-slide">
+                <img style="position: relative; top: 2rem; width: 100%;" class="illustrationMobile" src="./static/more.png" alt="More Illustration">
+            </div>
+        </div>
+    </div>
+
     <div class="buttonGithub">
         <button id="github-signin" class="github_signin">Join waitlist w/ Github</button>
         <svg class="moonAnimation pathClass" viewBox="-10 -80 231 188" width="261" height="218" xmlns="http://www.w3.org/2000/svg">
@@ -132,7 +170,20 @@
                 </animateMotion>
             </g>
         </svg>
+        <div class="buttonBg"></div>
     </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var mySwiper = new Swiper('.mySwiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+            autoplay: {
+                delay: 2500,
+            },
+        });
+    </script>    
     <script src="script.js"></script>
 </body>
 </html>
