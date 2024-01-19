@@ -134,6 +134,7 @@
                 <img style="position: relative; top: 2rem; width: 100%;" class="illustrationMobile" src="./static/more.png" alt="More Illustration">
             </div>
         </div>
+        <div class="swiper-pagination"></div>
     </div>
 
     <div class="buttonGithub">
@@ -182,8 +183,13 @@
             autoplay: {
                 delay: 2500,
             },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true, // This makes the dots clickable
+                dynamicBullets: true, // This will make the number of dots dynamic based on the slides
+            },
         });
-    </script>    
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

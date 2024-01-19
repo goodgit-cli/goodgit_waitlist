@@ -447,6 +447,7 @@ body{
 
     .terminalMobile{
         display: flex !important;
+        margin-bottom: 2rem;
     }
 
     .terminalContentMobile{
@@ -467,6 +468,17 @@ body{
 
     .copyDiv{
         width: 90%;
+    }
+    
+    .swiper-pagination-bullet {
+        background: white !important;
+        width: 8px;
+        height: 8px;
+        opacity: 0.5;
+    }
+    
+    .swiper-pagination-bullet-active {
+        opacity: 1;
     }
 }
 
