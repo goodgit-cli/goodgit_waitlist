@@ -523,3 +523,36 @@ body{
         width: 100%;
     }
 }
+
+@media screen and (max-height: 775px) {  
+    .goodgit{
+        width: 15rem;
+        margin-top: -4rem;
+        margin-bottom: -2rem;
+    }
+
+    .buttonGithub{
+        bottom: 2rem;
+    }
+}
+
+@media screen and (max-height: 700px) {  
+    .nav svg{
+        width: 2.5rem;
+    }
+
+    .goodgit{
+        width: 14rem;
+        margin-top: -5rem;
+        margin-bottom: -4rem;
+    }
+
+    .terminalContentMobile{
+        transform: scale(0.8) !important;
+    }
+
+    .buttonGithub{
+        z-index: 100;
+        bottom: 2rem;
+    }
+}
