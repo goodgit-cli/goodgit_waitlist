@@ -32,37 +32,56 @@ const app = firebase.initializeApp(firebaseConfig);
 // Initialize Firebase Auth and Firestore
 const auth = firebase.auth();
 const db = firebase.firestore();
+let mainEmail;
 
 const provider = new firebase.auth.GithubAuthProvider();
 provider.addScope('user:email'); // This requests the user's email from GitHub.
 
 function handleGitHubSignIn() {
-    auth.signInWithPopup(provider) // Changed to signInWithPopup
+    auth.signInWithPopup(provider)
         .then((result) => {
-            // This gives you a GitHub Access Token.
             const token = result.credential.accessToken;
-
-            // Use token to fetch the user's profile information from GitHub.
             fetch('https://api.github.com/user/emails', {
                 headers: {
                     'Authorization': `token ${token}`
                 }
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(emails => {
                 const primaryEmail = emails.find(email => email.primary).email;
-                saveUserEmailToWaitlist(result.user.uid, primaryEmail);
+                mainEmail = primaryEmail;
+                return fetch('https://api.github.com/user', {
+                    headers: {
+                        'Authorization': `token ${token}`
+                    }
+                });
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(userData => {
+                const githubUrl = userData.html_url;
+                saveUserEmailToWaitlist(result.user.uid, mainEmail, githubUrl);
             })
             .catch((error) => {
-                console.error('Error fetching user email from GitHub:', error);
-                notify("Error fetching user email :(", "warning")
+                console.error('Error fetching data from GitHub:', error);
+                notify("Error fetching data :(", "warning");
             });
         })
         .catch((error) => {
             console.error('Error during GitHub sign-in:', error);
-            notify("Error during sign in :(", "warning")
+            notify("Error during sign in :(", "warning");
         });
 }
+
 
 auth.getRedirectResult().then((result) => {
     if (result.credential) {
@@ -107,25 +126,68 @@ document.addEventListener('DOMContentLoaded', function() {
     signInButton.addEventListener('click', handleGitHubSignIn);
 });
 
+function addedToWaitlistFunc(){
+    document.querySelector(".github_signin").classList.add("signedIn")
+    document.querySelector(".github_signin").innerHTML = "Joined Waitlist :)"
+}
 
-function saveUserEmailToWaitlist(userId, email) {
+function saveUserEmailToWaitlist(userId, email, githubUrl) {
     // Assuming your collection is named 'waitlist'
     db.collection('waitlist').doc(userId).set({
         Email: email,
+        GitHubUrl: githubUrl,
         Approved: false // Set to false by default, as per your Firestore screenshot
     })
     .then(() => {
         console.log('User email added to waitlist!');
         notify("Email added to waitlist!", "success")
-        document.querySelector(".github_signin").classList.add("signedIn")
-        document.querySelector(".github_signin").innerHTML = "Joined Waitlist :)"
-        // Here you can redirect the user or show a confirmation message
+        // Set initial values
+        localStorage.setItem('addedToWaitlist', 'True');
+        localStorage.setItem('approved', 'False');
+        addedToWaitlistFunc()
     })
     .catch((error) => {
         console.error('Error adding user to waitlist: ', error);
         notify("Some error occured, please try again.", "warning")
         // Handle any errors here, such as showing a message to the user
     });
+}
+
+// Get values
+var addedToWaitlist = localStorage.getItem('addedToWaitlist');
+var approved = localStorage.getItem('approved');
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Parses the query string and returns an object of parameters
+    function getQueryParams() {
+        var queryParams = {};
+        var queryString = window.location.search.substring(1);
+        var queryParamsArray = queryString.split('&');
+
+        for (var i = 0; i < queryParamsArray.length; i++) {
+            var pair = queryParamsArray[i].split('=');
+            queryParams[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+        }
+        return queryParams;
+    }
+
+    // Get the query parameters
+    var params = getQueryParams();
+
+    // Check if 'approved' is 'true'
+    if (params.approved === "true") {
+        localStorage.setItem('approved', 'True');     
+        window.location.replace("https://www.goodgit.io/approved.html");
+    }
+});
+
+
+if (addedToWaitlist == 'True'){
+    addedToWaitlistFunc()
+}
+
+if (approved == 'True'){
+    window.location.replace("https://www.goodgit.io/approved.html");
 }
 
 
