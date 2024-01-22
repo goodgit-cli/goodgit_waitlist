@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- SEO meta tags -->
+  <meta name="description" content="GoodGit: Making Git easier for humans.">
+  <meta name="keywords" content="Git, goodgit, version control, software development, code, repository, commit, uncommit, branch, search, setup, publish, web, AI, timetravel, CLI, terminal, pip install, Python">
+  <meta name="author" content="Shubham Gupta · Saket Gupta">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoodGit</title>
+  <link rel="stylesheet" href="./approved/styles.css">
+
+  <meta property="og:title" content="GoodGit" />
+  <meta property="og:description" content="GoodGit: Making Git easier for humans" />
+  <meta property="og:image" content="/static/goodgitBanner.png/" />
+  <meta property="og:url" content="https://goodgit.io/" />
+
+
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@701,200,500,301,201,1,300,2,601,600,401,501,400,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="/static/goodgit.png">
+  <!-- Default theme. ~960B -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@vime/core@^5/themes/default.css"
+  />
+
+  <!-- Optional light theme (extends default). ~400B -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@vime/core@^5/themes/light.css"
+  />
+
+  <!-- Library and all of its components are lazy loaded, so nothing to sweat about here. ~3kB -->
+  <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@vime/core@^5/dist/vime/vime.esm.js"
+  ></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DDJ9ZE37PM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DDJ9ZE37PM');
+  </script>
+</head>
+<body>
+  <div class="navBarMobile">
+    <svg class="hamburger" width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3.07397 6.01855H21.074" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M3 11H15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <a href="https://github.com/brainspoof/goodgit" target="_blank">
+      <img src="./static/github-mark-white.svg" alt="github mark" class="githubNav">
+    </a>
+  </div>
+
+  <div class="menu">
+    <svg class="cross" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7 7L17 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M17 7L7 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>      
+    <div class="linkList">
+      <a href="#goodgit" class="link-item-mobile">goodgit</a>
+      <a href="#add" class="link-item-mobile">add</a>
+      <a href="#commit" class="link-item-mobile">commit</a>
+      <a href="#uncommit" class="link-item-mobile">uncommit</a>
+      <a href="#timetravel" class="link-item-mobile">time-travel</a>
+      <a href="#search" class="link-item-mobile">search</a>
+      <a href="#branch" class="link-item-mobile">branch</a>
+      <a href="#setup" class="link-item-mobile">setup</a>
+      <a href="#publish" class="link-item-mobile">publish</a>
+      <a href="#web" class="link-item-mobile">web</a>
+    </div>
+  </div>
+
+  <a href="https://github.com/brainspoof/goodgit" target="_blank">
+    <img src="./static/github-mark-white.svg" alt="github mark" class="githubLogo">
+  </a>
+
+  
+  <div class="leftSection">
+    <div class="commandDetailed goodgit" id="goodgit">
+      <img src="./static/good_git.svg" alt="goodgit logo" class="goodgitLogo">
+      <h3 class="description">Git; for humans</h3>
+      <div class="copyDiv">
+        <h3 class="text textCommit">>_ &nbsp; <span>pip install goodgit</span></h3>
+        <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+      </div>
+    </div>
+    
+    <div class="commandDetailed" id="add">
+      <h1 class="heading">add</h1>
+      <h3 class="description">add files like you're used to</h3>
+      <div class="copyDiv">
+        <h3 class="text textCommit">>_ &nbsp; <span>gg add &lt;files to add&gt;</span></h3>
+        <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+      </div>
+    </div>
+
+    <div class="commandDetailed" id="commit">
+      <h1 class="heading">commit</h1>
+      <h3 class="description">You write code; AI writes the commit message for you!</h3>
+      <div class="copyDiv">
+        <h3 class="text textCommit">>_ &nbsp; <span>gg commit</span></h3>
+        <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+      </div>
+    </div>
+
+    <div class="commandDetailed" id="uncommit">
+      <h1 class="heading">uncommit</h1>
+      <h3 class="description">Uncommit the oops commits</h3>
+      <div class="copyDiv">
+        <h3 class="text textCommit">>_ &nbsp; <span>gg uncommit</span></h3>
+        <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+      </div>
+    </div>
+
+    <div class="commandDetailed" id="timetravel">
+      <h1 class="heading">timetravel</h1>
+      <h3 class="description">time-travel through your history, make it your present if you like it</h3>
+      <div class="copyParentDiv">
+        <div class="copyDiv">
+          <h3 class="text">>_ &nbsp; <span>gg timetravel</span></h3>
+          <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+        </div>
+        <p class="or">Or</p>
+        <div class="copyDiv">
+          <h3 class="text">>_ &nbsp; <span>gg tt</span></h3>
+          <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+        </div>
+      </div>
+      <p class="descriptionSecondary">Bring the time-travelled commit to the present.</p>
+      <div class="copyDiv">
+        <h3 class="text">>_ &nbsp; <span>gg tt apply</span></h3>
+        <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+      </div>
+    </div>
+
+    <div class="commandDetailed" id="search">
+      <h1 class="heading">search</h1>
+      <h3 class="description">What you want is just a search away</h3>
+      <div class="copyDiv">
+        <h3 class="text textCommit">>_ &nbsp; <span>gg search</span></h3>
+        <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+      </div>
+    </div>
+
+    <div class="commandDetailed" id="branch">
+      <h1 class="heading">branch</h1>
+      <h3 class="description">No stashing; no worries! Just start branching</h3>
+      <div class="copyParentDiv">
+        <div class="copyDiv">
+          <h3 class="text">>_ &nbsp; <span>gg branch</span></h3>
+          <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+        </div>
+        <p class="or">Or</p>
+        <div class="copyDiv">
+          <h3 class="text">>_ &nbsp; <span>gg b</span></h3>
+          <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="commandDetailed" id="setup">
+      <h1 class="heading">setup</h1>
+      <h3 class="description">No more irritating SSH, set it it in T-10 seconds. <br>
+        Have multiple accounts? Set them up too!</h3>
+      <div class="copyDiv">
+        <h3 class="text">>_ &nbsp; <span>gg setup</span></h3>
+        <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+      </div>
+    </div>
+
+    <div class="commandDetailed" id="publish">
+      <h1 class="heading">publish</h1>
+      <h3 class="description">Just started a project? Don't leave your terminal to add it to github!</h3>
+      <div class="copyDiv">
+        <h3 class="text">>_ &nbsp; <span>gg publish</span></h3>
+        <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+      </div>
+    </div>
+
+    <div class="commandDetailed" id="web">
+      <h1 class="heading">web</h1>
+      <h3 class="description">open your repo in the browser</h3>
+      <div class="copyDiv">
+        <h3 class="text">>_ &nbsp; <span>gg web</span></h3>
+        <h3 class="copy" onclick="copyFeedback(event)">copy</h3>
+      </div>
+    </div>
+
+    <h3 class="contactUs">Contact us at <span id="email">saket@goodgit.io</span></h3>
+    <br><br>
+  </div>
+  <div class="rightSection">
+    <div class="video">
+      <vm-player class="player" autoplay muted>
+        <vm-video poster="/media/poster.png" cross-origin>
+          <source data-src="./static/video.mp4" type="video/mp4" />
+          <track
+            default
+            kind="subtitles"
+            src="/media/subs/en.vtt"
+            srclang="en"
+            label="English"
+          />
+        </vm-video>
+      
+        <!-- Loads the default Vime UI. -->
+        <vm-default-ui />
+      </vm-player>
+      
+      <img src="./static/allYouNeed.svg" alt="all you need svg with arrow" class="arrow">
+    </div>
+    
+    <div class="bottomSection">
+      <div class="linkList">
+        <a href="#goodgit" class="link-item">goodgit</a>
+        <a href="#add" class="link-item">add</a>
+        <a href="#commit" class="link-item">commit</a>
+        <a href="#uncommit" class="link-item">uncommit</a>
+        <a href="#timetravel" class="link-item">time-travel</a>
+        <a href="#search" class="link-item">search</a>
+        <a href="#branch" class="link-item">branch</a>
+        <a href="#setup" class="link-item">setup</a>
+        <a href="#publish" class="link-item">publish</a>
+        <a href="#web" class="link-item">web</a>
+      </div>
+    </div>
+  </div>
+  <script src="./approved/script.js"></script>
+</body>
+</html>

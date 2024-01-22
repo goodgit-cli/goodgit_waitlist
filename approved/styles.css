@@ -1,0 +1,432 @@
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-family: General Sans, sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+.leftSection {
+    scroll-behavior: smooth;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #ffffff25;
+    border-radius: 0px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ffffff; 
+    border-radius: 0px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+  }
+
+.leftSection{
+    width: 60vw;
+    height: 100vh;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 73px;
+    overflow: auto;
+}
+
+.rightSection{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 920px;
+    height: 100vh;
+}
+
+.rightSection .bottomSection{
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    height: calc(100vh - 550px);
+}
+
+.video{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -2rem;
+    width:100%;
+    height: 517.5px;
+    border: 2px solid #ffd38a;
+}
+
+.video .player{
+    width: 100%;
+}
+
+.arrow{
+    position: absolute;
+    inset: 0;
+    top: 535px;
+    left: 1rem;
+    width: 15rem;
+    z-index: 100;
+}
+
+.bottomSection .linkList{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 80%;
+    flex-wrap: wrap;
+    margin: auto 1.5rem;
+    margin-top: 5rem;
+    overflow: auto;
+}
+
+.link-item {
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    opacity: .8;
+    transition: .2s all;
+}
+
+.link-item-mobile {
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    opacity: .8;
+    transition: .2s all;
+}
+
+.link-item:hover{
+    opacity: 1;
+}
+
+.copyDiv{
+    display: flex;
+    border: 1px solid #fff;
+    justify-content: space-between;
+    padding: 1.5rem;
+    font-size: 1rem;
+    position: relative;
+    margin-top: 3rem;
+}
+
+.copyDiv .text{
+    font-weight: 400;
+    font-family: Source Code Pro;
+}
+
+.copyDiv .copy{
+    font-weight: 400;
+    cursor: pointer;
+    transition: .2s all;
+}
+
+.copy:hover{
+    font-weight: 500;
+}
+
+
+.copied {
+    position: absolute;
+    animation: balloon 1s forwards;
+    pointer-events: none;
+    color: #73F698;
+}
+
+@keyframes balloon {
+    0%{
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translateY(-50px) scale(1.2);
+        opacity: 0;
+    }
+}
+
+.copyParentDiv{
+    display: flex;
+    align-items: center;
+    margin-bottom: -1rem;
+    margin-top: -1rem;
+}
+
+.copyParentDiv .copyDiv{
+    width: 100%;
+}
+
+.copyParentDiv .or{
+    font-size: 1rem;
+    margin: auto 15px;
+    padding-top: 3rem;
+}
+
+.description{
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 0.5rem;   
+}
+
+.descriptionSecondary{
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 4rem;
+    margin-bottom: -1.5rem;
+}
+
+.commandDetailed{
+    margin-top: 8rem;
+}
+
+.goodgit{
+    margin-top: 2rem;
+}
+
+.heading{
+    font-size: 58px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.githubLogo{
+    position: fixed;
+    width: 3rem;
+    bottom: 2rem;
+    right: 2rem;
+    background: black;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity:.8;
+    z-index: 100;
+    transition: .2s all;
+}
+
+.githubLogo:hover{
+    opacity: 1;
+}
+
+.contactUs{
+    margin-top: 8rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.contactUs span{
+    font-weight: 500;
+    color: #73F698;
+    cursor: pointer;
+}
+
+.copied-message {
+    position: absolute;
+    margin-left: 3rem;
+    color: #73F698;
+    pointer-events: none; /* So it doesn't interfere with other clicks */
+    animation: balloon 1s forwards;
+}
+
+.navBarMobile{
+    position: fixed;
+    display: none;
+    width: 100%;
+    justify-content: space-between;
+    top: 0rem;
+    padding: 1.5rem;
+    z-index: 100;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.navBarMobile .githubNav{
+    cursor: pointer;
+    width: 2rem;
+}
+
+.navBarMobile .hamburger{
+    transform: scale(1.5);
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.menu{
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 1);
+    z-index: 101;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.menu .cross{
+    position: absolute;
+    inset: 35px;
+    cursor: pointer;
+    transform: scale(2);
+}
+
+.menuVisible{
+    display: none;
+}
+
+.menu .linkList{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+  
+
+@supports (backdrop-filter: blur(5px)){
+    .navBarMobile{
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(15px);
+    }
+}
+
+@media screen and (max-width:1550px) {
+    .copyParentDiv{
+        flex-direction: column;
+        gap: 0rem;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .or{
+        padding: 1rem !important;
+    }
+
+    .copyParentDiv .copyDiv{
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width:1150px) {
+    .leftSection{
+        padding: 30px;
+    }
+
+    .copyDiv{
+        font-size: 0.9rem;
+    }
+
+    .description{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    body{
+        flex-direction: column-reverse;
+        overflow: auto;
+    }
+
+    .descriptionSecondary{
+        margin-bottom: 2rem;
+        margin-top: -1rem;
+    }
+
+    .menuvisible{
+        display: flex !important;
+    }
+
+    .navBarMobile{
+        display: flex;
+    }
+
+    .rightSection{
+        width: 100vw;
+        height: auto;
+        margin-top: 6.5rem;
+    }
+
+    .githubLogo{
+        display: none;
+    }
+
+    .rightSection .video{
+        flex-direction: column;
+        margin-top: 0;
+        height: auto;
+    }
+
+    .player{
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+
+    .arrow{
+        margin-top: -2rem;
+        position: relative;
+        top: 3rem;
+        width: 15rem;
+        left: 0;
+    }
+
+    .rightSection .bottomSection{
+        display: none;
+    }
+
+    .leftSection{
+        width: 100vw;
+        height: auto;
+    }
+
+    .description{
+        font-size: 20px;
+        line-height: 2rem;
+        margin-top: -0.5rem;
+    }
+
+    .heading{
+        font-size: 35px;
+    }
+
+    .commandDetailed{
+        margin-top: 3rem;
+    }
+
+    .copyDiv{
+        margin-top: 1rem;
+    }
+
+    .copyDiv span{
+        margin-left: -1rem;
+    }
+
+    .goodgit{
+        margin-top: 7rem;
+    }
+}
+
+
+@media screen and (max-width:550px) {
+    .goodgitLogo{
+        width: 70%;
+    }
+}
