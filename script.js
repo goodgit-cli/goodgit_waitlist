@@ -136,22 +136,24 @@ function saveUserEmailToWaitlist(userId, email, githubUrl) {
     db.collection('waitlist').doc(userId).set({
         Email: email,
         GitHubUrl: githubUrl,
-        Approved: false // Set to false by default, as per your Firestore screenshot
+        Approved: false, // Set to false by default, as per your Firestore screenshot
+        Timestamp: firebase.firestore.FieldValue.serverTimestamp() // Add this line for timestamp
     })
     .then(() => {
-        console.log('User email added to waitlist!');
-        notify("Email added to waitlist!", "success")
+        console.log('User email added to waitlist with timestamp!');
+        notify("Email added to waitlist!", "success");
         // Set initial values
         localStorage.setItem('addedToWaitlist', 'True');
         localStorage.setItem('approved', 'False');
-        addedToWaitlistFunc()
+        addedToWaitlistFunc();
     })
     .catch((error) => {
         console.error('Error adding user to waitlist: ', error);
-        notify("Some error occured, please try again.", "warning")
+        notify("Some error occured, please try again.", "warning");
         // Handle any errors here, such as showing a message to the user
     });
 }
+
 
 // Get values
 var addedToWaitlist = localStorage.getItem('addedToWaitlist');
