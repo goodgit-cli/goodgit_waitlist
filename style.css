@@ -182,6 +182,18 @@ body{
     animation: zindexAni 5s linear infinite;
 }
 
+.discord{
+    position: absolute;
+    opacity: 0.8;
+    bottom: 24px;
+    right: 24px;
+    transition: 0.2s all;
+}
+
+.discord:hover{
+    opacity: 1;
+}
+
 
 @keyframes zindexAni {
     0%{
